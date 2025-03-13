@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -11,10 +11,10 @@
         <h1>Bem-vindo ao Grêmio Estudantil!</h1>
         <nav>
             <ul>
-                <li><a href="quem-somos.html">Quem Somos</a></li> <!-- Alterado para redirecionar para a nova página -->
-                <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="#sobre-nos">Sobre Nós</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="sobre-nos.html">Sobre Nós</a></li>
             </ul>
         </nav>
     </header>
@@ -22,16 +22,6 @@
     <section id="quem-somos">
         <h2>Quem Somos</h2>
         <p>O Grêmio Estudantil representa os alunos e busca melhorias para a escola.</p>
-    </section>
-
-    <section id="eventos">
-        <h2>Eventos</h2>
-        <p>Confira os próximos eventos organizados pelo Grêmio!</p>
-    </section>
-
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Envie sugestões ou dúvidas para: <strong>gremio@escola.com</strong></p>
     </section>
 
     <footer>
