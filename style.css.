@@ -1,4 +1,4 @@
-
+/* Definir a cor de fundo e a fonte */
 body {
     background-color: #e0f7fa; /* Cor de fundo azulada clara */
     color: #fff; /* Cor das letras branca */
