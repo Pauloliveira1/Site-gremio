@@ -1,50 +1,76 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #e0f7fa; /* Cor de fundo azulada clara */
+    color: #fff; /* Cor das letras branca */
+    font-family: 'Roboto', sans-serif; /* Fonte Roboto */
+    font-weight: bold; /* Deixar o texto em negrito por padrão */
 }
 
+/* Cabeçalho */
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #00796b; /* Cor de fundo azul escuro */
+    color: white;
     padding: 20px;
     text-align: center;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
+/* Logo */
+header img.logo {
+    width: 200px; /* Ajustar o tamanho da logo */
+    margin-bottom: 10px;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-header nav ul li a {
-    color: #fff;
+/* Links */
+a {
+    color: #fff; /* Cor dos links branca */
     text-decoration: none;
-    font-weight: bold;
+    font-weight: bold; /* Deixar os links em negrito */
 }
 
-section {
+a:hover {
+    color: #ffeb3b; /* Cor amarela ao passar o mouse */
+}
+
+/* Seção Quem Somos */
+#quem-somos {
+    background-color: #ffffff; /* Cor de fundo branca */
     padding: 20px;
-    margin: 10px 0;
+    border-radius: 8px;
+    margin: 20px;
 }
 
+#quem-somos h2 {
+    color: #00796b; /* Cor do título da seção em verde escuro */
+}
+
+/* Seção de Eventos */
+#eventos {
+    background-color: #00796b; /* Cor de fundo verde escuro */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#eventos h2 {
+    color: #ffeb3b; /* Cor amarela para o título da seção de eventos */
+}
+
+/* Seção de Contato */
+#contato {
+    background-color: #00796b;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#contato h2 {
+    color: #ffeb3b; /* Cor amarela para o título da seção de contato */
+}
+
+/* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #00796b; /* Cor de fundo verde escuro */
+    color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
