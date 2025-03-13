@@ -1,76 +1,102 @@
-/* Definir a cor de fundo e a fonte */
+/* Geral */
 body {
-    background-color: #e0f7fa; /* Cor de fundo azulada clara */
-    color: #fff; /* Cor das letras branca */
-    font-family: 'Roboto', sans-serif; /* Fonte Roboto */
-    font-weight: bold; /* Deixar o texto em negrito por padrão */
+    background-color: #D0E8FF; /* Fundo azul claro */
+    font-family: 'Arial', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
 /* Cabeçalho */
 header {
-    background-color: #00796b; /* Cor de fundo azul escuro */
-    color: white;
-    padding: 20px;
+    background-color: #005F9F; /* Cor azul escuro para o cabeçalho */
     text-align: center;
+    padding: 20px;
 }
 
-/* Logo */
-header img.logo {
-    width: 200px; /* Ajustar o tamanho da logo */
-    margin-bottom: 10px;
+header .logo {
+    width: 150px; /* Ajuste o tamanho da logo */
+    height: auto;
 }
 
-/* Links */
-a {
-    color: #fff; /* Cor dos links branca */
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
     text-decoration: none;
-    font-weight: bold; /* Deixar os links em negrito */
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
-a:hover {
-    color: #ffeb3b; /* Cor amarela ao passar o mouse */
+nav ul li a:hover {
+    color: #FFD700; /* Cor amarela para hover */
 }
 
-/* Seção Quem Somos */
-#quem-somos {
-    background-color: #ffffff; /* Cor de fundo branca */
+/* Seções */
+section {
     padding: 20px;
-    border-radius: 8px;
     margin: 20px;
-}
-
-#quem-somos h2 {
-    color: #00796b; /* Cor do título da seção em verde escuro */
-}
-
-/* Seção de Eventos */
-#eventos {
-    background-color: #00796b; /* Cor de fundo verde escuro */
-    color: white;
-    padding: 20px;
+    background-color: #007ACC; /* Azul mais forte para as seções */
     border-radius: 8px;
 }
 
-#eventos h2 {
-    color: #ffeb3b; /* Cor amarela para o título da seção de eventos */
-}
-
-/* Seção de Contato */
-#contato {
-    background-color: #00796b;
+section h2 {
+    font-size: 2em;
+    font-weight: bold;
     color: white;
-    padding: 20px;
-    border-radius: 8px;
 }
 
-#contato h2 {
-    color: #ffeb3b; /* Cor amarela para o título da seção de contato */
+section p {
+    font-size: 1.2em;
+    color: white;
 }
 
-/* Footer */
+/* Link para o Instagram */
+section a {
+    color: #FFD700; /* Cor amarela para o link do Instagram */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+/* Rodapé */
 footer {
-    background-color: #00796b; /* Cor de fundo verde escuro */
-    color: white;
+    background-color: #005F9F; /* Cor azul escuro para o rodapé */
     text-align: center;
     padding: 10px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 }
