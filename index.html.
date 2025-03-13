@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grêmio Estudantil</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <header>
-        <img src="https://photos.app.goo.gl/9reQMStjvTRkqtNK8" alt="Imagem do Grêmio" class="logo">
+        <!-- Substituindo pela imagem do Google Drive -->
+        <img src="https://drive.google.com/uc?export=view&id=1JeXMtPfoui3X06XBQCb6bsDu0Kq1yuAf" alt="Imagem do Grêmio" class="logo">
         <h1>Bem-vindo ao Grêmio Estudantil!</h1>
         <nav>
             <ul>
