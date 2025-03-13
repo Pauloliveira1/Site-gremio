@@ -1,84 +1,102 @@
-/* Resetando margens e preenchimento */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Definindo a cor de fundo e a cor do texto */
+/* Geral */
 body {
-    background-color: #D4E9F2; /* Azul claro */
+    background-color: #D0E8FF; /* Fundo azul claro */
     font-family: 'Arial', sans-serif;
     color: white;
+    margin: 0;
+    padding: 0;
 }
 
 /* Cabeçalho */
 header {
-    background-color: #003366; /* Azul escuro */
+    background-color: #005F9F; /* Cor azul escuro para o cabeçalho */
     text-align: center;
     padding: 20px;
 }
 
-header h1 {
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-}
-
-header img {
-    width: 100px;
+header .logo {
+    width: 150px; /* Ajuste o tamanho da logo */
     height: auto;
-    margin-bottom: 20px;
 }
 
-/* Estilos para o menu de navegação */
+header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+}
+
 nav ul {
     list-style: none;
+    padding: 0;
+    margin-top: 20px;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.2em;
 }
 
-/* Estilos para as seções */
+nav ul li a:hover {
+    color: #FFD700; /* Cor amarela para hover */
+}
+
+/* Seções */
 section {
-    margin: 20px;
     padding: 20px;
-    background-color: #ffffff; /* Fundo branco para as seções */
+    margin: 20px;
+    background-color: #007ACC; /* Azul mais forte para as seções */
     border-radius: 8px;
 }
 
-h2 {
-    color: #003366; /* Azul escuro */
+section h2 {
+    font-size: 2em;
     font-weight: bold;
+    color: white;
 }
 
-p {
-    font-size: 18px;
+section p {
+    font-size: 1.2em;
+    color: white;
 }
 
 /* Link para o Instagram */
-a {
-    color: #FFD700; /* Amarelo */
+section a {
+    color: #FFD700; /* Cor amarela para o link do Instagram */
+    font-weight: bold;
     text-decoration: none;
 }
 
-a:hover {
+section a:hover {
     text-decoration: underline;
 }
 
 /* Rodapé */
 footer {
+    background-color: #005F9F; /* Cor azul escuro para o rodapé */
     text-align: center;
-    background-color: #003366; /* Azul escuro */
-    color: white;
     padding: 10px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 }
