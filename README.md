@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grêmio Estudantil</title>
-    <!-- Certifique-se de que o caminho para o arquivo CSS está correto -->
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
 </head>
 <body>
     <header>
-        <!-- Imagem do Grêmio -->
-        <img src="https://drive.google.com/uc?export=view&id=1JeXMtPfoui3X06XBQCb6bsDu0Kq1yuAf" alt="Imagem do Grêmio" class="logo">
+        <img src="https://i.imgur.com/ExemploImagem.jpg" alt="Imagem do Grêmio" class="logo">
         <h1>Bem-vindo ao Grêmio Estudantil!</h1>
         <nav>
             <ul>
