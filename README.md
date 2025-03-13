@@ -30,7 +30,7 @@
 
     <section id="contato">
         <h2>Contato</h2>
-        <p>Envie sugestões ou dúvidas para: <strong>gremio@escola.com</strong></p>
+        <p>Envie sugestões ou dúvidas para: <strong>gremio@iftm.com</strong></p>
     </section>
 
     <footer>
