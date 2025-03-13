@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grêmio Estudantil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <!-- Logo do Grêmio Estudantil no cabeçalho -->
-        <img src="https://i.imgur.com/mrR2pXI.png" alt="Logo do Grêmio Estudantil" class="logo">
+        <img src="https://photos.app.goo.gl/9reQMStjvTRkqtNK8" alt="Imagem do Grêmio" class="logo">
         <h1>Bem-vindo ao Grêmio Estudantil!</h1>
         <nav>
             <ul>
                 <li><a href="quem-somos.html">Quem Somos</a></li>
                 <li><a href="eventos.html">Eventos</a></li>
                 <li><a href="contato.html">Contato</a></li>
-                <li><a href="sobre-nos.html">Sobre Nós</a></li>
             </ul>
         </nav>
     </header>
@@ -25,6 +22,7 @@
     <section id="quem-somos">
         <h2>Quem Somos</h2>
         <p>O Grêmio Estudantil representa os alunos e busca melhorias para a escola.</p>
+        <p>Acesse nosso Instagram: <a href="https://www.instagram.com/mudar_iftm?igsh=MWczcXJiMDVlcHJlYg==" target="_blank">Instagram do Grêmio</a></p>
     </section>
 
     <section id="eventos">
