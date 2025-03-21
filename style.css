@@ -1,6 +1,6 @@
 /* Geral */
 body {
-    background-color: #E3F2FD; /* Azul bem claro para suavidade */
+    background-color: #E3F2FD; /* Azul bem claro */
     font-family: 'Arial', sans-serif;
     color: #333;
     margin: 0;
@@ -16,7 +16,7 @@ body {
 
 /* Cabeçalho */
 header {
-    background-color: #01579B; /* Azul escuro */
+    background-color: #01579B;
     text-align: center;
     padding: 20px;
     color: white;
@@ -33,14 +33,11 @@ header h1 {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 nav ul li {
-    margin: 5px 15px;
+    display: inline;
+    margin: 0 15px;
 }
 
 nav ul li a {
@@ -52,45 +49,55 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #FFD700; /* Dourado no hover */
+    color: #FFD700;
 }
 
-/* Seções */
-.box {
-    background: white;
-    padding: 20px;
-    margin: 20px 0;
+/* Carrossel */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 400%; /* Para suportar várias imagens */
+}
+
+.carousel-item {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
 }
 
-.box:hover {
-    transform: scale(1.02); /* Efeito sutil de aumento */
+/* Botões do carrossel */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
 }
 
-h2 {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #01579B;
+.prev {
+    left: 10px;
 }
 
-p {
-    font-size: 1.2em;
-    color: #444;
+.next {
+    right: 10px;
 }
 
-/* Link do Instagram */
-.box a {
-    color: #0288D1;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.box a:hover {
-    color: #FFA000; /* Laranja suave */
-    text-decoration: underline;
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Rodapé */
@@ -110,24 +117,25 @@ footer {
     }
 
     header h1 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        padding: 0;
+        text-align: center;
     }
 
     nav ul li {
-        margin: 8px 0;
-    }
-
-    .box {
-        padding: 15px;
+        display: block;
         margin: 10px 0;
     }
 
-    footer {
-        font-size: 0.9em;
+    .box {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .carousel-item {
+        max-height: 300px;
     }
     }
