@@ -69,8 +69,8 @@ nav ul li a:hover {
 
 .carousel-item {
     width: 100%;
-    max-height: 400px;
-    object-fit: cover;
+    height: auto; /* Permite que a imagem seja exibida sem cortes */
+    object-fit: contain; /* Garante que a imagem inteira apareça */
     border-radius: 8px;
 }
 
@@ -136,6 +136,7 @@ footer {
     }
 
     .carousel-item {
-        max-height: 300px;
+        width: 100%;
+        height: auto;
     }
-    }
+}
