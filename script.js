@@ -9,8 +9,8 @@ function mudarSlide(direcao) {
     if (index >= total) index = 0;
     if (index < 0) index = total - 1;
 
-    const larguraSlide = slides[0].clientWidth;
-    container.style.transform = `translateX(-${index * larguraSlide}px)`;
+    // Move o carrossel
+    container.style.transform = `translateX(-${index * 900}px)`;
 }
 
 // Faz as imagens mudarem sozinhas a cada 5 segundos
