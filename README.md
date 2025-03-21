@@ -2,7 +2,6 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grêmio Estudantil</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,6 +19,7 @@
   </header>
 
   <main class="container">
+
     <!-- Carrossel de fotos -->
     <section class="carousel">
       <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
@@ -38,6 +38,7 @@
       <p>Este é o site oficial do Grêmio Estudantil. Aqui você encontra informações sobre quem somos, nossos eventos e formas de contato.</p>
       <p>Acompanhe nossas últimas novidades e participe das atividades que promovemos!</p>
     </section>
+
   </main>
 
   <footer>
