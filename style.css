@@ -1,57 +1,3 @@
-/* Geral */
-body {
-    background-color: #E3F2FD; /* Azul bem claro */
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-/* Centraliza conteúdo */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Cabeçalho */
-header {
-    background-color: #01579B;
-    text-align: center;
-    padding: 20px;
-    color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
-    font-size: 2.2em;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-/* Navegação */
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    transition: color 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    color: #FFD700;
-}
-
 /* Carrossel */
 .carousel {
     position: relative;
@@ -64,13 +10,13 @@ nav ul li a:hover {
 .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 400%; /* Para suportar várias imagens */
+    width: 300%; /* Ajustado para o número de imagens */
 }
 
 .carousel-item {
     width: 100%;
-    height: auto; /* Permite que a imagem seja exibida sem cortes */
-    object-fit: contain; /* Garante que a imagem inteira apareça */
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
 }
 
@@ -98,45 +44,4 @@ nav ul li a:hover {
 
 .prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Rodapé */
-footer {
-    background-color: #01579B;
-    text-align: center;
-    padding: 15px;
-    color: white;
-    font-size: 1em;
-    margin-top: 20px;
-}
-
-/* Responsividade */
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
-
-    nav ul {
-        padding: 0;
-        text-align: center;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .box {
-        margin: 10px 0;
-        padding: 15px;
-    }
-
-    .carousel-item {
-        width: 100%;
-        height: auto;
-    }
 }
