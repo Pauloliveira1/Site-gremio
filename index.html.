@@ -25,7 +25,7 @@
       <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
       <div class="carousel-container">
         <img src="IMG-20250321-WA0050.jpg" class="carousel-item">
-        <img src="img/foto2.jpg" class="carousel-item">
+        <img src="IMG-20250321-WA0054.jpg" class="carousel-item">
         <img src="img/foto3.jpg" class="carousel-item">
         <img src="img/foto4.jpg" class="carousel-item">
       </div>
