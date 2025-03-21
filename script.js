@@ -9,7 +9,6 @@ function mudarSlide(direcao) {
     if (index >= total) index = 0;
     if (index < 0) index = total - 1;
 
-    // Ajustando a largura corretamente
     const larguraSlide = slides[0].clientWidth;
     container.style.transform = `translateX(-${index * larguraSlide}px)`;
 }
