@@ -1,6 +1,6 @@
 /* Geral */
 body {
-    background-color: #E3F2FD; /* Azul bem claro */
+    background-color: #E3F2FD;
     font-family: 'Arial', sans-serif;
     color: #333;
     margin: 0;
@@ -64,40 +64,16 @@ nav ul li a:hover {
 .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 300%; /* Ajustado para o número de imagens */
+    width: 500%; /* Ajustado para o número de imagens */
 }
 
 .carousel-item {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    max-width: 500px; /* Define um tamanho máximo */
+    height: 500px; /* Mantém a imagem quadrada */
+    object-fit: cover;
     border-radius: 8px;
-}
-
-/* Botões do carrossel */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    border-radius: 50%;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    margin: auto;
 }
 
 /* Rodapé */
@@ -121,7 +97,6 @@ footer {
     }
 
     nav ul {
-        padding: 0;
         text-align: center;
     }
 
@@ -130,12 +105,8 @@ footer {
         margin: 10px 0;
     }
 
-    .box {
-        margin: 10px 0;
-        padding: 15px;
-    }
-
     .carousel-item {
-        max-height: 300px;
+        max-width: 100%;
+        height: auto;
     }
 }
