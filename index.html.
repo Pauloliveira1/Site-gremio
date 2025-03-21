@@ -22,6 +22,7 @@
   <main class="container">
     <!-- Carrossel de fotos -->
     <section class="carousel">
+      <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
       <div class="carousel-container">
         <img src="IMG-20250321-WA0050.jpg" class="carousel-item">
         <img src="IMG-20250321-WA0054.jpg" class="carousel-item">
@@ -29,6 +30,7 @@
         <img src="IMG-20250321-WA0070.jpg" class="carousel-item">
         <img src="IMG-20250321-WA0071.jpg" class="carousel-item">
       </div>
+      <button class="next" onclick="mudarSlide(1)">&#10095;</button>
     </section>
 
     <section class="box">
