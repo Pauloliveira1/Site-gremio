@@ -24,7 +24,7 @@
     <section class="carousel">
       <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
       <div class="carousel-container">
-        <img src="img/foto1.jpg" class="carousel-item">
+        <img src="https://www.instagram.com/p/DHYhtr_ujko/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="carousel-item">
         <img src="img/foto2.jpg" class="carousel-item">
         <img src="img/foto3.jpg" class="carousel-item">
         <img src="img/foto4.jpg" class="carousel-item">
