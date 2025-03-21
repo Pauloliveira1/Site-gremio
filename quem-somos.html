@@ -24,12 +24,26 @@
       <p>O Grêmio Estudantil é formado por alunos que representam toda a comunidade estudantil...</p>
       <p>Nossa missão é...</p>
       <p>Nossa visão é...</p>
-      <!-- Você pode colocar fotos, lista de membros, etc. -->
+    </section>
+
+    <!-- Carrossel de Fotos -->
+    <section class="carousel">
+      <h2>Conheça Nossa Equipe</h2>
+      <div class="carousel-container">
+        <img class="carousel-item" src="imagens/integrante1.jpg" alt="Integrante 1">
+        <img class="carousel-item" src="imagens/integrante2.jpg" alt="Integrante 2">
+        <img class="carousel-item" src="imagens/integrante3.jpg" alt="Integrante 3">
+        <!-- Adicione mais imagens conforme necessário -->
+      </div>
+      <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
+      <button class="next" onclick="mudarSlide(1)">&#10095;</button>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Grêmio Estudantil. Todos os direitos reservados.</p>
   </footer>
+
+  <script src="script/mudarSlide.js"></script> <!-- Caminho correto para seu script -->
 </body>
 </html>
