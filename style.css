@@ -33,11 +33,14 @@ header h1 {
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 5px 15px;
 }
 
 nav ul li a {
@@ -107,21 +110,24 @@ footer {
     }
 
     header h1 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     nav ul {
-        padding: 0;
-        text-align: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        display: block;
-        margin: 10px 0;
+        margin: 8px 0;
     }
 
     .box {
-        margin: 10px 0;
         padding: 15px;
+        margin: 10px 0;
+    }
+
+    footer {
+        font-size: 0.9em;
     }
     }
