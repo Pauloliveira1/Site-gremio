@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grêmio Estudantil</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -19,10 +20,8 @@
   </header>
 
   <main class="container">
-
     <!-- Carrossel de fotos -->
     <section class="carousel">
-      <button class="prev" onclick="mudarSlide(-1)">&#10094;</button>
       <div class="carousel-container">
         <img src="IMG-20250321-WA0050.jpg" class="carousel-item">
         <img src="IMG-20250321-WA0054.jpg" class="carousel-item">
@@ -30,7 +29,6 @@
         <img src="IMG-20250321-WA0070.jpg" class="carousel-item">
         <img src="IMG-20250321-WA0071.jpg" class="carousel-item">
       </div>
-      <button class="next" onclick="mudarSlide(1)">&#10095;</button>
     </section>
 
     <section class="box">
@@ -38,7 +36,6 @@
       <p>Este é o site oficial do Grêmio Estudantil. Aqui você encontra informações sobre quem somos, nossos eventos e formas de contato.</p>
       <p>Acompanhe nossas últimas novidades e participe das atividades que promovemos!</p>
     </section>
-
   </main>
 
   <footer>
