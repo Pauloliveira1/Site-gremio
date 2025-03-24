@@ -7,14 +7,14 @@ body {
     padding: 0;
 }
 
-/* Centraliza conteĆŗdo */
+/* Centraliza conteúdo */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* CabeĆ§alho */
+/* Cabeçalho */
 header {
     background-color: #01579B;
     text-align: center;
@@ -24,19 +24,18 @@ header {
 }
 
 header h1 {
-    font-size: 2.2em;
+    font-size: 2em;
     font-weight: bold;
     margin: 10px 0;
 }
 
-/* NavegaĆ§Ć£o */
+/* Navegação */
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -47,7 +46,7 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1em;
     transition: color 0.3s ease-in-out;
 }
 
@@ -57,10 +56,10 @@ nav ul li a:hover {
 
 /* Carrossel */
 .carousel {
+    position: relative;
     width: 100%;
     max-width: 900px;
     height: auto;
-    aspect-ratio: 9 / 4;
     overflow: hidden;
     margin: 20px auto;
     text-align: center;
@@ -70,17 +69,17 @@ nav ul li a:hover {
 .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 100%;
+    width: 500%;
 }
 
 .carousel-item {
     width: 100%;
     height: auto;
+    max-height: 400px;
     object-fit: cover;
-    flex-shrink: 0;
 }
 
-/* BotĆµes do carrossel */
+/* Botões do carrossel */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -88,25 +87,25 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 20px;
     border-radius: 50%;
 }
 
 .prev {
-    left: 10px;
+    left: 5px;
 }
 
 .next {
-    right: 10px;
+    right: 5px;
 }
 
 .prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* RodapĆ© */
+/* Rodapé */
 footer {
     background-color: #01579B;
     text-align: center;
@@ -116,18 +115,12 @@ footer {
     margin-top: 20px;
 }
 
-/* Ajuste exclusivo para o carrossel da pĆ�gina "Quem Somos" */
-.quem-somos-carousel .carousel-item {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Ajustes para telas menores */
+/* Responsividade */
 @media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
     header h1 {
         font-size: 1.8em;
     }
@@ -137,12 +130,25 @@ footer {
         align-items: center;
     }
 
+    nav ul li {
+        display: block;
+        text-align: center;
+    }
+
     .carousel {
-        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    .carousel-item {
+        max-height: 300px;
     }
 
     .prev, .next {
-        padding: 10px;
+        padding: 8px;
         font-size: 18px;
     }
+
+    footer {
+        font-size: 0.9em;
     }
+}
