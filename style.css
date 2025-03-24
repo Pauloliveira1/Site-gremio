@@ -7,14 +7,14 @@ body {
     padding: 0;
 }
 
-/* Centraliza conteúdo */
+/* Centraliza conteĆŗdo */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Cabeçalho */
+/* CabeĆ§alho */
 header {
     background-color: #01579B;
     text-align: center;
@@ -29,15 +29,18 @@ header h1 {
     margin: 10px 0;
 }
 
-/* Navegação */
+/* NavegaĆ§Ć£o */
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 5px 10px;
 }
 
 nav ul li a {
@@ -54,9 +57,10 @@ nav ul li a:hover {
 
 /* Carrossel */
 .carousel {
-    position: relative;
-    width: 900px;
-    height: 400px;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    aspect-ratio: 9 / 4;
     overflow: hidden;
     margin: 20px auto;
     text-align: center;
@@ -66,16 +70,17 @@ nav ul li a:hover {
 .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 500%;
+    width: 100%;
 }
 
 .carousel-item {
-    width: 900px;
-    height: 400px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
-/* Botões do carrossel */
+/* BotĆµes do carrossel */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -101,7 +106,7 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Rodapé */
+/* RodapĆ© */
 footer {
     background-color: #01579B;
     text-align: center;
@@ -110,12 +115,34 @@ footer {
     font-size: 1em;
     margin-top: 20px;
 }
-/* Ajuste exclusivo para o carrossel da página "Quem Somos" */
+
+/* Ajuste exclusivo para o carrossel da pĆ�gina "Quem Somos" */
 .quem-somos-carousel .carousel-item {
-    width: 100%; /* Adapta a imagem à largura do carrossel */
-    height: auto; /* Mantém a proporção original da imagem */
-    max-height: 400px; /* Limita a altura máxima para não passar do carrossel */
-    object-fit: contain; /* Garante que a imagem inteira apareça sem cortes */
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
     display: block;
     margin: 0 auto;
 }
+
+/* Ajustes para telas menores */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel {
+        aspect-ratio: 16 / 9;
+    }
+
+    .prev, .next {
+        padding: 10px;
+        font-size: 18px;
+    }
+    }
