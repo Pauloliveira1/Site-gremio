@@ -187,6 +187,40 @@
   }
 
   document.addEventListener('DOMContentLoaded', carregarPublico);
+
+  <section id="contato">
+  <h2>Contato</h2>
+  <form id="contatoForm">
+    <input id="nome" placeholder="Seu nome" required>
+    <input id="email" placeholder="Seu email" type="email" required>
+    <input id="assunto" placeholder="Assunto" required>
+    <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+    <button type="submit">Enviar</button>
+    <p id="contato-msg"></p>
+  </form>
+</section>
+
+<script type="module">
+  import { salvarContato } from "./firebase-db.js";
+  const form = document.getElementById("contatoForm");
+  if(form){
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const assunto = document.getElementById("assunto").value.trim();
+      const mensagem = document.getElementById("mensagem").value.trim();
+      try{
+        await salvarContato(nome,email,assunto,mensagem);
+        document.getElementById("contato-msg").textContent = "Mensagem enviada! Obrigado.";
+        form.reset();
+      }catch(err){
+        console.error(err);
+        document.getElementById("contato-msg").textContent = "Erro ao enviar, tente novamente.";
+      }
+    });
+  }
+</script>
 </script>
 </body>
 </html>
