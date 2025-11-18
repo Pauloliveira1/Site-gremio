@@ -27,6 +27,7 @@
 
     <!-- Admin: aparece só se logado -->
     <section id="admin-area" style="display:none;">
+      
       <article class="card">
         <h3>Publicar Notícia</h3>
         <input id="noticia-titulo" placeholder="Título">
@@ -54,17 +55,17 @@
         <h3>Mensagens recebidas</h3>
         <div id="contatos-list"></div>
       </article>
+
     </section>
   </main>
 
-  <!-- scripts (módulos) -->
+  <!-- scripts -->
   <script type="module" src="./firebase-config.js"></script>
-  <script type="module" src="./firebase-db.js"></script>
   <script type="module" src="./firebase-auth.js"></script>
+  <script type="module" src="./firebase-db.js"></script>
   <script type="module" src="./firebase-storage.js"></script>
 
   <script type="module">
-    // Código específico da admin.html que liga tudo (usa as funções exportadas)
     import { loginUsuario, logoutUsuario, observarAuth } from "./firebase-auth.js";
     import { publicarNoticia, publicarAviso, publicarEvento, listarContatos } from "./firebase-db.js";
     import { uploadImagem } from "./firebase-storage.js";
@@ -104,7 +105,6 @@
       }
     });
 
-    // publicar notícia / aviso
     document.getElementById("btn-pub-noticia").addEventListener("click", async () => {
       const t = document.getElementById("noticia-titulo").value.trim();
       const c = document.getElementById("noticia-conteudo").value.trim();
@@ -125,7 +125,6 @@
       document.getElementById("aviso-conteudo").value = "";
     });
 
-    // evento com imagem
     document.getElementById("btn-pub-evento").addEventListener("click", async () => {
       const t = document.getElementById("evento-titulo").value.trim();
       const d = document.getElementById("evento-data").value;
@@ -138,7 +137,9 @@
       if (file) {
         imageUrl = await uploadImagem(file, "eventos");
       }
+
       await publicarEvento({ titulo: t, descricao: desc, data: d, imagemUrl: imageUrl });
+
       alert("Evento publicado");
       document.getElementById("evento-titulo").value = "";
       document.getElementById("evento-data").value = "";
@@ -148,23 +149,34 @@
 
     async function carregarMensagens() {
       contatosList.innerHTML = "Carregando...";
+      
       try {
         const msgs = await listarContatos();
+
         if (!msgs.length) {
           contatosList.innerHTML = "<p>Nenhuma mensagem</p>";
           return;
         }
+
         contatosList.innerHTML = "";
         msgs.forEach(m => {
           const el = document.createElement("div");
           el.className = "card";
-          const date = m.criadoEm && m.criadoEm.toDate ? m.criadoEm.toDate().toLocaleString() : "";
-          el.innerHTML = <strong>${m.nome}</strong> (${m.email}) <em>${date}</em><p><strong>Assunto:</strong> ${m.assunto}</p><p>${m.mensagem}</p>;
+
+          const date = m.criadoEm?.toDate?.().toLocaleString() || "";
+
+          el.innerHTML = `
+            <strong>${m.nome}</strong> (${m.email}) <em>${date}</em>
+            <p><strong>Assunto:</strong> ${m.assunto}</p>
+            <p>${m.mensagem}</p>
+          `;
+
           contatosList.appendChild(el);
         });
+
       } catch (err) {
         console.error(err);
-        contatosList.innerHTML = "<p>Erro ao carregar</p>";
+        contatosList.innerHTML = "<p>Erro ao carregar mensagens</p>";
       }
     }
   </script>
