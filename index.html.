@@ -119,5 +119,74 @@
 <script type="module" src="./firebase-auth.js"></script>
 
 <script src="./script.js"></script> <!-- seu carrossel -->
+
+<script type="module" src="./firebase-config.js"></script>
+<script type="module" src="./firebase-db.js"></script>
+<script type="module" src="./firebase-storage.js"></script>
+<script type="module" src="./firebase-auth.js"></script>
+<!-- seu script do carrossel (não module) -->
+<script src="./script.js"></script>
+<!-- init que carrega notícias/avisos no público -->
+<script type="module">
+  import { listarNoticias, listarAvisos, listarEventos } from "./firebase-db.js";
+
+  function escapeHtml(text = ''){
+    return text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  async function carregarPublico(){
+    // notícias
+    const news = document.getElementById("noticias-list");
+    if(news){
+      news.innerHTML = "Carregando...";
+      const n = await listarNoticias();
+      if(!n.length) news.innerHTML = "<p>Sem notícias</p>";
+      else {
+        news.innerHTML = "";
+        n.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "card";
+          div.innerHTML = <h3>${escapeHtml(item.titulo)}</h3><p>${escapeHtml(item.conteudo)}</p>;
+          news.appendChild(div);
+        });
+      }
+    }
+    // avisos
+    const avis = document.getElementById("avisos-list");
+    if(avis){
+      avis.innerHTML = "Carregando...";
+      const a = await listarAvisos();
+      if(!a.length) avis.innerHTML = "<p>Sem avisos</p>";
+      else {
+        avis.innerHTML = "";
+        a.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "card";
+          div.innerHTML = <h4>${escapeHtml(item.titulo)}</h4><p>${escapeHtml(item.conteudo)}</p>;
+          avis.appendChild(div);
+        });
+      }
+    }
+    // eventos
+    const evc = document.getElementById("eventos-list");
+    if(evc){
+      evc.innerHTML = "Carregando...";
+      const e = await listarEventos();
+      if(!e.length) evc.innerHTML = "<p>Sem eventos</p>";
+      else {
+        evc.innerHTML = "";
+        e.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "card";
+          const img = item.imagemUrl ? <img src="${item.imagemUrl}" alt="" style="max-width:100%; border-radius:6px;"> : "";
+          div.innerHTML = <h3>${escapeHtml(item.titulo)} <small>${escapeHtml(item.data||"")}</small></h3>${img}<p>${escapeHtml(item.descricao)}</p>;
+          evc.appendChild(div);
+        });
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', carregarPublico);
+</script>
 </body>
 </html>
