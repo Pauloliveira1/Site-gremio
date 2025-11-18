@@ -27,7 +27,6 @@
 
     <!-- Admin: aparece só se logado -->
     <section id="admin-area" style="display:none;">
-      
       <article class="card">
         <h3>Publicar Notícia</h3>
         <input id="noticia-titulo" placeholder="Título">
@@ -55,7 +54,6 @@
         <h3>Mensagens recebidas</h3>
         <div id="contatos-list"></div>
       </article>
-
     </section>
   </main>
 
@@ -105,11 +103,12 @@
       }
     });
 
+    // publicar notícia / aviso
     document.getElementById("btn-pub-noticia").addEventListener("click", async () => {
       const t = document.getElementById("noticia-titulo").value.trim();
       const c = document.getElementById("noticia-conteudo").value.trim();
       if (!t || !c) return alert("Preencha");
-      await publicarNoticia(t,c);
+      await publicarNoticia(t, c);
       alert("Notícia publicada");
       document.getElementById("noticia-titulo").value = "";
       document.getElementById("noticia-conteudo").value = "";
@@ -119,12 +118,13 @@
       const t = document.getElementById("aviso-titulo").value.trim();
       const c = document.getElementById("aviso-conteudo").value.trim();
       if (!t || !c) return alert("Preencha");
-      await publicarAviso(t,c);
+      await publicarAviso(t, c);
       alert("Aviso publicado");
       document.getElementById("aviso-titulo").value = "";
       document.getElementById("aviso-conteudo").value = "";
     });
 
+    // Evento com imagem
     document.getElementById("btn-pub-evento").addEventListener("click", async () => {
       const t = document.getElementById("evento-titulo").value.trim();
       const d = document.getElementById("evento-data").value;
@@ -138,53 +138,54 @@
         imageUrl = await uploadImagem(file, "eventos");
       }
 
-      await publicarEvento({ titulo: t, descricao: desc, data: d, imagemUrl: imageUrl });
+      await publicarEvento({
+        titulo: t,
+        descricao: desc,
+        data: d,
+        imagemUrl: imageUrl
+      });
 
-      alert("Evento publicado");
+      alert("Evento publicado!");
       document.getElementById("evento-titulo").value = "";
       document.getElementById("evento-data").value = "";
       document.getElementById("evento-desc").value = "";
       document.getElementById("evento-imagem").value = "";
     });
 
+    // Listar mensagens de contato
     async function carregarMensagens() {
       contatosList.innerHTML = "Carregando...";
-      
       try {
         const msgs = await listarContatos();
-
         if (!msgs.length) {
           contatosList.innerHTML = "<p>Nenhuma mensagem</p>";
           return;
         }
-
         contatosList.innerHTML = "";
-        msgs.forEach(m => {
-          const el = document.createElement("div");
-          el.className = "card";
 
-          const date = m.criadoEm?.toDate?.().toLocaleString() || "";
+        msgs.forEach((m) => {
+          const div = document.createElement("div");
+          div.className = "card";
 
-          el.innerHTML = `
-            <strong>${m.nome}</strong> (${m.email}) <em>${date}</em>
-            <p><strong>Assunto:</strong> ${m.assunto}</p>
-            <p>${m.mensagem}</p>
+          const date =
+            m.criadoEm && m.criadoEm.toDate
+              ? m.criadoEm.toDate().toLocaleString()
+              : "";
+
+          div.innerHTML = `
+            <p><strong>${m.nome}</strong> (${m.email})</p>
+            <p><em>${date}</em></p>
+            <p><strong>Assunto:</strong> ${m.assunto || ""}</p>
+            <p>${m.mensagem || ""}</p>
           `;
 
-          contatosList.appendChild(el);
+          contatosList.appendChild(div);
         });
-
       } catch (err) {
         console.error(err);
         contatosList.innerHTML = "<p>Erro ao carregar mensagens</p>";
       }
     }
-
-    firebase-config.js
-firebase-auth.js
-firebase-db.js
-firebase-storage.js
-    
   </script>
 </body>
 </html>
