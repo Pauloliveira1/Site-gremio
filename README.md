@@ -1,4 +1,3 @@
-
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -109,6 +108,7 @@
   </main>
 
   <footer>
+
     <p>&copy; 2025 Grêmio Estudantil. Todos os direitos reservados.</p>
   </footer>
 
