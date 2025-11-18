@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Painel - MUDAR</title>
+  <link rel="stylesheet" href="./estilo.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <header class="header">
+    <h1>Painel Administrativo - MUDAR</h1>
+    <a href="index.html">Abrir site público</a>
+  </header>
+
+  <main class="container">
+    <!-- Autenticação -->
+    <section id="auth-area" class="card">
+      <h2>Login</h2>
+      <input id="email-login" placeholder="email" type="email">
+      <input id="senha-login" placeholder="senha" type="password">
+      <div>
+        <button id="btn-login">Entrar</button>
+        <button id="btn-logout" style="display:none;">Sair</button>
+      </div>
+      <p id="auth-msg"></p>
+    </section>
+
+    <!-- Admin: aparece só se logado -->
+    <section id="admin-area" style="display:none;">
+      <article class="card">
+        <h3>Publicar Notícia</h3>
+        <input id="noticia-titulo" placeholder="Título">
+        <textarea id="noticia-conteudo" placeholder="Conteúdo"></textarea>
+        <button id="btn-pub-noticia">Publicar Notícia</button>
+      </article>
+
+      <article class="card">
+        <h3>Publicar Aviso</h3>
+        <input id="aviso-titulo" placeholder="Título">
+        <textarea id="aviso-conteudo" placeholder="Conteúdo"></textarea>
+        <button id="btn-pub-aviso">Publicar Aviso</button>
+      </article>
+
+      <article class="card">
+        <h3>Cadastrar Evento (com imagem)</h3>
+        <input id="evento-titulo" placeholder="Título">
+        <input id="evento-data" type="date">
+        <textarea id="evento-desc" placeholder="Descrição"></textarea>
+        <input id="evento-imagem" type="file" accept="image/*">
+        <button id="btn-pub-evento">Publicar Evento</button>
+      </article>
+
+      <article class="card">
+        <h3>Mensagens recebidas</h3>
+        <div id="contatos-list"></div>
+      </article>
+    </section>
+  </main>
+
+  <!-- scripts (módulos) -->
+  <script type="module" src="./firebase-config.js"></script>
+  <script type="module" src="./firebase-db.js"></script>
+  <script type="module" src="./firebase-auth.js"></script>
+  <script type="module" src="./firebase-storage.js"></script>
+
+  <script type="module">
+    // Código específico da admin.html que liga tudo (usa as funções exportadas)
+    import { loginUsuario, logoutUsuario, observarAuth } from "./firebase-auth.js";
+    import { publicarNoticia, publicarAviso, publicarEvento, listarContatos } from "./firebase-db.js";
+    import { uploadImagem } from "./firebase-storage.js";
+
+    const emailLogin = document.getElementById("email-login");
+    const senhaLogin = document.getElementById("senha-login");
+    const btnLogin = document.getElementById("btn-login");
+    const btnLogout = document.getElementById("btn-logout");
+    const authMsg = document.getElementById("auth-msg");
+    const adminArea = document.getElementById("admin-area");
+    const contatosList = document.getElementById("contatos-list");
+
+    btnLogin.addEventListener("click", async () => {
+      try {
+        await loginUsuario(emailLogin.value, senhaLogin.value);
+        authMsg.textContent = "Logando...";
+      } catch (err) {
+        console.error(err);
+        authMsg.textContent = "Erro no login";
+      }
+    });
+
+    btnLogout.addEventListener("click", async () => {
+      await logoutUsuario();
+    });
+
+    observarAuth(user => {
+      if (user) {
+        document.getElementById("auth-area").style.display = "none";
+        adminArea.style.display = "block";
+        btnLogout.style.display = "inline-block";
+        carregarMensagens();
+      } else {
+        document.getElementById("auth-area").style.display = "block";
+        adminArea.style.display = "none";
+        btnLogout.style.display = "none";
+      }
+    });
+
+    // publicar notícia / aviso
+    document.getElementById("btn-pub-noticia").addEventListener("click", async () => {
+      const t = document.getElementById("noticia-titulo").value.trim();
+      const c = document.getElementById("noticia-conteudo").value.trim();
+      if (!t || !c) return alert("Preencha");
+      await publicarNoticia(t,c);
+      alert("Notícia publicada");
+      document.getElementById("noticia-titulo").value = "";
+      document.getElementById("noticia-conteudo").value = "";
+    });
+
+    document.getElementById("btn-pub-aviso").addEventListener("click", async () => {
+      const t = document.getElementById("aviso-titulo").value.trim();
+      const c = document.getElementById("aviso-conteudo").value.trim();
+      if (!t || !c) return alert("Preencha");
+      await publicarAviso(t,c);
+      alert("Aviso publicado");
+      document.getElementById("aviso-titulo").value = "";
+      document.getElementById("aviso-conteudo").value = "";
+    });
+
+    // evento com imagem
+    document.getElementById("btn-pub-evento").addEventListener("click", async () => {
+      const t = document.getElementById("evento-titulo").value.trim();
+      const d = document.getElementById("evento-data").value;
+      const desc = document.getElementById("evento-desc").value.trim();
+      const file = document.getElementById("evento-imagem").files[0];
+
+      if (!t || !d || !desc) return alert("Preencha todos os campos");
+
+      let imageUrl = "";
+      if (file) {
+        imageUrl = await uploadImagem(file, "eventos");
+      }
+      await publicarEvento({ titulo: t, descricao: desc, data: d, imagemUrl: imageUrl });
+      alert("Evento publicado");
+      document.getElementById("evento-titulo").value = "";
+      document.getElementById("evento-data").value = "";
+      document.getElementById("evento-desc").value = "";
+      document.getElementById("evento-imagem").value = "";
+    });
+
+    async function carregarMensagens() {
+      contatosList.innerHTML = "Carregando...";
+      try {
+        const msgs = await listarContatos();
+        if (!msgs.length) {
+          contatosList.innerHTML = "<p>Nenhuma mensagem</p>";
+          return;
+        }
+        contatosList.innerHTML = "";
+        msgs.forEach(m => {
+          const el = document.createElement("div");
+          el.className = "card";
+          const date = m.criadoEm && m.criadoEm.toDate ? m.criadoEm.toDate().toLocaleString() : "";
+          el.innerHTML = <strong>${m.nome}</strong> (${m.email}) <em>${date}</em><p><strong>Assunto:</strong> ${m.assunto}</p><p>${m.mensagem}</p>;
+          contatosList.appendChild(el);
+        });
+      } catch (err) {
+        console.error(err);
+        contatosList.innerHTML = "<p>Erro ao carregar</p>";
+      }
+    }
+  </script>
+</body>
+</html>
